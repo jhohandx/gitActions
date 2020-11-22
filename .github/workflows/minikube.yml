@@ -17,7 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    # The type of runner that the job will run o
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -40,11 +40,11 @@ jobs:
           sudo apt-get install -y net-tools;
           kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml;
           kubectl expose deployment hello-world --type=LoadBalancer --name=my-service;
+          sleep 1m;
           kubectl get services my-service;
-          kubectl describe services my-service
-          sleep 15;
+          kubectl describe services my-service;
           kubectl describe deployment nginx-deployment;
           kubectl get all
           kubectl get pods -o wide
-          curl 172.17.0.3:80
+          sleep 1m
           ifconfig
