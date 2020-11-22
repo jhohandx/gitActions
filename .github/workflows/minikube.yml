@@ -34,4 +34,6 @@ jobs:
         run: |
           minikube start;
           sleep 2m;
-          kubectl get po -A
+          kubectl get po -A;
+          pwd;
+          ls
