@@ -38,8 +38,11 @@ jobs:
           ls -ll;
           sudo apt-get update -y;
           sudo apt-get install -y net-tools;
-          kubectl apply -f https://k8s.io/examples/application/deployment.yaml;
-          sleep 1m;
+          kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml;
+          kubectl expose deployment hello-world --type=LoadBalancer --name=my-service;
+          kubectl get services my-service;
+          kubectl describe services my-service
+          sleep 15;
           kubectl describe deployment nginx-deployment;
           kubectl get all
           kubectl get pods -o wide
