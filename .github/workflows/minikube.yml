@@ -33,13 +33,13 @@ jobs:
       - name: Run a multi-line script
         run: |
           minikube start;
-          sleep 2m;
           kubectl get po -A;
           pwd;
           ls -ll;
           sudo apt-get update -y;
           sudo apt-get install -y net-tools;
           kubectl apply -f https://k8s.io/examples/application/deployment.yaml;
+          sleep 1m;
           kubectl describe deployment nginx-deployment;
           kubectl get all
           ifconfig
