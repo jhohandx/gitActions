@@ -37,4 +37,6 @@ jobs:
           kubectl get po -A;
           pwd;
           ls -ll;
-          docker run -it -p 127.0.0.1:8080:8080 -v "${HOME}/.local/share/code-server:/home/ec2-user/.local/share/code-server" -v "$PWD:/home/ec2-user/project" --network host codercom/code-server:v2
+          sudo apt-get update -y;
+          sudo apt-get install -y net-tools;
+          ifconfig
