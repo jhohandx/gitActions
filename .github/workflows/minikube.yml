@@ -39,4 +39,6 @@ jobs:
           ls -ll;
           sudo apt-get update -y;
           sudo apt-get install -y net-tools;
+          kubectl apply -f https://k8s.io/examples/application/deployment.yaml;
+          kubectl describe deployment nginx-deployment;
           ifconfig
