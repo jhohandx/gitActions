@@ -43,5 +43,5 @@ jobs:
           kubectl describe deployment nginx-deployment;
           kubectl get all
           kubectl get pods -o wide
-          curl http://172.17.0.3 
+          curl 172.17.0.3:80
           ifconfig
