@@ -14,12 +14,16 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
   displayName: 'Run a multi-line script'
+
 
 - task: AWSCLI@1
   inputs:
     awsCredentials: 'aws-sbx-sc'
     regionName: 'us-east-1'
     awsCommand: 'aws sts get-caller-identity'
+
+
