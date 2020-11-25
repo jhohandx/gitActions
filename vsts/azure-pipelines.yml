@@ -41,7 +41,7 @@ steps:
     sshEndpoint: 'sc-ssh'
     runOptions: 'inline'
     inline: |
-      kubectl apply -f /home/ec2-user/bancolombia/k3s/hello-nginx.yaml
-      
+      kubectl apply -f /home/ec2-user/bancolombia/k3s/hello-nginx.yaml      
       kubectl get po -owide |grep nginx
+      ls;pwd
     readyTimeout: '20000'
