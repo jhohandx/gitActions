@@ -31,5 +31,5 @@ steps:
   inputs:
     sshEndpoint: 'sc-ssh'
     runOptions: 'commands'
-    commands: 'kubectl get all -owide'
+    commands: 'kubectl get po -owide'
     readyTimeout: '20000'
