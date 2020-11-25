@@ -17,7 +17,8 @@ pool:
 
 steps:
 - script: cat /etc/*release
-  displayName: 'Run a one-line script'
+  name: aws_download_cli
+  displayName: 'aws_download_cli'
 
 - script: |
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -27,6 +28,8 @@ steps:
   displayName: 'Run a multi-line script'
 
 - task: AWSShellScript@1
+  name: aws_assume_role
+  displayName: aws_assume_role
   inputs:
     awsCredentials: 'sc-test'
     regionName: 'us-east-1'
@@ -37,6 +40,8 @@ steps:
       aws sts assume-role --role-arn arn:aws:iam::772967566311:role/lambda-role --role-session-name vsts
 
 - task: SSH@0
+  name: kubernets_nginx
+  displayName: kubernets_nginx
   inputs:
     sshEndpoint: 'sc-ssh'
     runOptions: 'inline'
