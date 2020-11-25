@@ -31,7 +31,10 @@ steps:
     awsCredentials: 'sc-test'
     regionName: 'us-east-1'
     scriptType: 'inline'
-    inlineScript: aws sts get-caller-identity
+    inlineScript: |
+      aws sts get-caller-identity
+      aws sts assume-role --role-arn arn:aws:iam::772967566311:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccess_5e46d932740a76d9 --role-session-name vsts
+      aws sts assume-role --role-arn arn:aws:iam::772967566311:role/lambda-role --role-session-name vsts
 
 - task: SSH@0
   inputs:
