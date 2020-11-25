@@ -27,3 +27,9 @@ steps:
     scriptType: 'inline'
     inlineScript: aws sts get-caller-identity
 
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'sc-ssh'
+    runOptions: 'commands'
+    commands: 'kubectl get all -owide'
+    readyTimeout: '20000'
