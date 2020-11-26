@@ -25,7 +25,8 @@ steps:
     unzip awscliv2.zip
     sudo ./aws/install
     pip install awscli
-  displayName: 'Run a multi-line script'
+    rm -f awscliv2.zip
+  displayName: 'aws_install_cli'
 
 - task: AWSShellScript@1
   name: aws_assume_role
@@ -46,7 +47,7 @@ steps:
     sshEndpoint: 'sc-ssh'
     runOptions: 'inline'
     inline: |
-      kubectl apply -f /home/ec2-user/bancolombia/k3s/hello-nginx.yaml      
-      kubectl get po -owide |grep nginx
+      kubectl apply -f /home/ec2-user/bancolombia/example/hello-nginx/hello-nginx.yaml      
+      kubectl get po -owide | grep nginx
       ls;pwd
     readyTimeout: '20000'
