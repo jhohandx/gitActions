@@ -53,3 +53,12 @@ steps:
       kubectl get po -owide | grep webpage
       ls;pwd
     readyTimeout: '20000'
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'k3s'
+    command: 'get'
+    arguments: 'po'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Container Registry'
