@@ -11,7 +11,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: set image --record deployment/my-app container=jhohandx/static-page:da39a3ee5e6b4b0d3255bfef95601890afd80710
+        args: set image --record service/webpage-service container=jhohandx/static-page:da39a3ee5e6b4b0d3255bfef95601890afd80710
     - name: verify deployment
       uses: steebchen/kubectl@master
       env:
