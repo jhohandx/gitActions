@@ -12,6 +12,6 @@ docker tag ff921a5c236e jhohandx/static-page:da39a3ee5e6b4b0d3255bfef95601890afd
 sudo docker push jhohandx/static-page
 
 # run web page exposing 8085 port mapping host network 
-sudo docker run -it -p 127.0.0.1:8084:8084 --network host jhohandx/static-page:da39a3ee5e6b4b0d3255bfef95601890afd80709
+sudo docker run -it -p 127.0.0.1:8084:8084 --network host jhohandx/static-page:tag
 
 
