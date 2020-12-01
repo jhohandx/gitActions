@@ -1,0 +1,21 @@
+on: push
+name: deploy
+jobs:
+  deploy:
+    name: deploy to cluster
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: deploy to cluster
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: set image --record deployment/my-app container=jhohandx/static-page:da39a3ee5e6b4b0d3255bfef95601890afd80710
+    - name: verify deployment
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        KUBECTL_VERSION: "1.15"
+      with:
+        args: '"rollout status deployment/my-app"'
