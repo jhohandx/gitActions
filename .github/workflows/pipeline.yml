@@ -18,10 +18,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: build image
         run: |
-          echo docker build test
-          shm_id=$(sha256sum  /gitActions/vsts/webpage/Dockerfile | awk '{print $1}')
-          docker build --tag jhohandx/static-page:$shm_id /gitActions/vsts/webpage
-          sudo docker push jhohandx/static-page:$shm_id
+          echo docker build test;ls gitActions
+         # shm_id=$(sha256sum  /gitActions/vsts/webpage/Dockerfile | awk '{print $1}')
+         # docker build --tag jhohandx/static-page:$shm_id /gitActions/vsts/webpage
+         # sudo docker push jhohandx/static-page:$shm_id
           
 
 
