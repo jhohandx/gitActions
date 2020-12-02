@@ -14,8 +14,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: docker build csharp
       run: |
-        git clone https://github.com/jhohandx/gitActions.git;ls;pwd
-        #docker build /home/runner/work/gitActions/gitActions/vsts/webpage/Dockerfile -t jhohandx/csharp:1.0.0
+        git clone https://github.com/jhohandx/gitActions.git;pwd
+        ls /home/runner/work/gitActions/gitActions/vsts/webpage/
+        docker build /home/runner/work/gitActions/gitActions/vsts/webpage/Dockerfile -t jhohandx/csharp:1.0.0
     - name: docker push
       run: |
         docker push jhohandx/csharp:1.0.0
