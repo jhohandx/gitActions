@@ -1,4 +1,4 @@
-name: Node CI
+name: kubernetes web page
 
 on: [push]
 jobs:
