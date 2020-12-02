@@ -28,7 +28,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: ;pwd
+        args: get svc;git clone https://github.com/jhohandx/gitActions.git /github/workspace/gitActions;kubectl apply -f /github/workspace/gitActions/vsts/webpage/webpage.yml;pwd
 #     - name: verify deployment
 #       uses: steebchen/kubectl@master
 #       env:
