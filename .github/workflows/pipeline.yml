@@ -28,7 +28,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: apply -f /home/runner/work/gitActions/gitActions/vsts/webpage/webpage.yml
+        args: ;pwd
 #     - name: verify deployment
 #       uses: steebchen/kubectl@master
 #       env:
