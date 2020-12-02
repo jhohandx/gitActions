@@ -11,7 +11,7 @@ jobs:
     - name: commands to ssh
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: git clone https://github.com/jhohandx/gitActions.git /tmp
+        command: git clone https://github.com/jhohandx/gitActions.git;ls
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
