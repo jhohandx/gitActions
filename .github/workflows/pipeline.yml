@@ -7,20 +7,11 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@v2.1.5
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-      
-      
 
-    - name: ls -a via OPEN SSH Private Key
+    - name: commands to ssh
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: ls -a
+        command: kubectl apply -f /home/ec2-user/bancolombia/lab/webpage/webpage.yml
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
