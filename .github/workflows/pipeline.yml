@@ -3,7 +3,6 @@ name: kubernetes webpage
 on: [push]
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
     - name: build_webpage_image
