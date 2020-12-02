@@ -13,7 +13,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}     
 
-    - name: docker build csharp
+    - name: dockerBuildWebpage
       run: |
         git clone https://github.com/jhohandx/gitActions.git;pwd
         #shm_id=$(sha256sum  /home/runner/work/gitActions/gitActions/vsts/webpage/Dockerfile
@@ -24,18 +24,18 @@ jobs:
       run: |
         docker push jhohandx/static-page:${{ github.sha }}
           
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: build_webpage_image
-      uses: garygrossgarten/github-action-ssh@release
-      with:
-        command: shm_id=$(sha256sum  /home/ec2-user/bancolombia/lab/webpage/Dockerfile | awk '{print $1}');docker build --tag jhohandx/static-page:$shm_id /home/ec2-user/bancolombia/lab/webpage;sudo docker push jhohandx/static-page:$shm_id
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        privateKey: ${{ secrets.SERVER_SSH_KEY }}
-      env:
-        CI: true
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: build_webpage_image
+#       uses: garygrossgarten/github-action-ssh@release
+#       with:
+#         command: shm_id=$(sha256sum  /home/ec2-user/bancolombia/lab/webpage/Dockerfile | awk '{print $1}');docker build --tag jhohandx/static-page:$shm_id /home/ec2-user/bancolombia/lab/webpage;sudo docker push jhohandx/static-page:$shm_id
+#         host: ${{ secrets.REMOTE_HOST }}
+#         username: ${{ secrets.REMOTE_USER }}
+#         privateKey: ${{ secrets.SERVER_SSH_KEY }}
+#       env:
+#         CI: true
   
   deploy:
     name: deploy_webpage_service
