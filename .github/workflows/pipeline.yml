@@ -11,7 +11,7 @@ jobs:
     - name: commands to ssh
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: git clone https://github.com/jhohandx/gitActions.git /home/ec2-user/bancolombia/gitActions;pwd
+        command: git clone https://github.com/jhohandx/gitActions.git /home/ec2-user/bancolombia/gitActions;kubectl apply -f /home/ec2-user/bancolombia/gitActions/vsts/webpage/webpage.yml;pwd
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
@@ -28,7 +28,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: apply -f /home/ec2-user/bancolombia/gitActions/vsts/webpage/webpage.yml
+        args: get all --all-namespaces
 #     - name: verify deployment
 #       uses: steebchen/kubectl@master
 #       env:
