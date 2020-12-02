@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: commands to ssh
+    - name: build_webpage_image
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: git clone https://github.com/jhohandx/gitActions.git /home/ec2-user/bancolombia/gitActions;kubectl apply -f /home/ec2-user/bancolombia/gitActions/vsts/webpage/webpage.yml;pwd
+        command: shm_id=$(sha256sum  /home/ec2-user/bancolombia/lab/webpage/Dockerfile | awk '{print $1}');docker build --tag jhohandx/static-page:$shm_id /home/ec2-user/bancolombia/lab/webpage;sudo docker push jhohandx/static-page:$shm_id
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
@@ -19,7 +19,7 @@ jobs:
         CI: true      
 
   deploy:
-    name: deploy to cluster
+    name: deploy_webpage_service
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
