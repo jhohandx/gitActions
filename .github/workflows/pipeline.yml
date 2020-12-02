@@ -1,4 +1,4 @@
-name: kubernetes web page
+name: kubernetes webpage
 
 on: [push]
 jobs:
