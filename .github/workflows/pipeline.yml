@@ -14,8 +14,8 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
       env:
-        CI: true      
-
+        CI: true
+  
   deploy:
     name: deploy_webpage_service
     runs-on: ubuntu-latest
