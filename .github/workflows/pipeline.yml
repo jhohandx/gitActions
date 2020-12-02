@@ -21,8 +21,8 @@ jobs:
           echo docker build test;ls gitActions;pwd
           shm_id=$(sha256sum  /home/runner/work/gitActions/gitActions/vsts/webpage/Dockerfile | awk '{print $1}')
           echo $shm_id
-         # docker build --tag jhohandx/static-page:$shm_id /home/runner/work/gitActions/gitActions/gitActions/vsts/webpage
-         # sudo docker push jhohandx/static-page:$shm_id
+          docker build --tag jhohandx/static-page:$shm_id /home/runner/work/gitActions/gitActions/gitActions/vsts/webpage
+          sudo docker push jhohandx/static-page:$shm_id
           
 
 
