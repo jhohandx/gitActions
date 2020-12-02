@@ -15,11 +15,12 @@ jobs:
     - name: docker build csharp
       run: |
         git clone https://github.com/jhohandx/gitActions.git;pwd
+        shm_id=$(sha256sum  /home/runner/work/gitActions/gitActions/vsts/webpage/Dockerfile
         ls /home/runner/work/gitActions/gitActions/vsts/webpage/
-        docker build /home/runner/work/gitActions/gitActions/vsts/webpage/ -t jhohandx/csharp:1.0.0
+        docker build /home/runner/work/gitActions/gitActions/vsts/webpage/ -t jhohandx/static-page:$shm_id
     - name: docker push
       run: |
-        docker push jhohandx/csharp:1.0.0
+        docker push jhohandx/static-page:$shm_id
           
   build:
     runs-on: ubuntu-latest
