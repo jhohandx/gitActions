@@ -28,7 +28,7 @@ spec:
           secretName: connection-secret    
       containers:
       - name: webpage #1st container
-        image: jhohandx/static-page:da39a3ee5e6b4b0d3255bfef95601890afd80710
+        image: jhohandx/static-page:5daacf49569aaf0a9a7a067f82af87a08786feb462204ed914d98cd2c7e4329c
         ports:
         - containerPort: 8084 #Exposes the port 8084 of the container
         volumeMounts:
