@@ -22,8 +22,7 @@ jobs:
         docker build /home/runner/work/gitActions/gitActions/vsts/webpage/ -t jhohandx/static-page:${{ github.sha }}
     - name: docker push
       run: |
-        docker push jhohandx/static-page:${{ github.sha }}
-          
+        docker push jhohandx/static-page:${{ github.sha }}         
 #   build:
 #     runs-on: ubuntu-latest
 #     steps:
