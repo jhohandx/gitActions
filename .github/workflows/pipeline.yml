@@ -4,8 +4,8 @@ on:
     branches:
       - master
     paths:
-      - pipeline
-      - gitActions/vsts/webpage/**
+      - 'pipeline'
+      - 'gitActions/vsts/webpage/**'
   
 jobs:
 
