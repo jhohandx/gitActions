@@ -41,7 +41,7 @@ jobs:
     - name: build_webpage_image
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: kubectl describe all --selector app=webpage
+        command: kubectl describe all --selector app=webpage;sleep 2.5m; kubectl describe po --selector app=webpage
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SERVER_SSH_KEY }}
