@@ -3,9 +3,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - pipeline
-      - gitActions/vsts/webpage/**
+#     paths:
+#       - pipeline
+#       - gitActions/vsts/webpage/**
 jobs:
 
   make-docker-image:
