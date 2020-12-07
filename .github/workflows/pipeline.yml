@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - .github/workflows/pipeline.yml
+      - vsts/webpage/**
 
 jobs:
 
