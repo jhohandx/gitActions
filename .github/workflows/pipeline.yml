@@ -2,7 +2,7 @@ name: kubernetes-jhohandx/static-page
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       -gitActions/.github/workflows/pipeline.yml  
 jobs:
