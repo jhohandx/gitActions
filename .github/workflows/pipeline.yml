@@ -20,7 +20,7 @@ jobs:
         ls /home/runner/work/gitActions/gitActions/vsts/webpage/
         echo ${{ github.sha }}
         docker build /home/runner/work/gitActions/gitActions/vsts/webpage/ -t jhohandx/static-page:${{ github.sha }}
-        echo "##[set-env imagename=IMAGENAME;]${{ github.sha }}"
+        export imageid=${{ github.sha }}"
     - name: docker push
       run: |
         docker push jhohandx/static-page:${{ github.sha }}         
@@ -47,5 +47,5 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: get svc;git clone https://github.com/jhohandx/gitActions.git /github/workspace/gitActions;kubectl apply -f /github/workspace/gitActions/vsts/webpage/webpage.yml;kubectl set image deployment/webpage-deployment webpage=jhohandx/static-page:$IMAGENAME
+        args: get svc;git clone https://github.com/jhohandx/gitActions.git /github/workspace/gitActions;kubectl apply -f /github/workspace/gitActions/vsts/webpage/webpage.yml;kubectl set image deployment/webpage-deployment webpage=jhohandx/static-page:${{ github.sha }}
 
