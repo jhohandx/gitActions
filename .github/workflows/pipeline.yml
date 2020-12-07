@@ -46,5 +46,5 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: get svc;git clone https://github.com/jhohandx/gitActions.git /github/workspace/gitActions;kubectl apply -f /github/workspace/gitActions/vsts/webpage/webpage.yml;pwd
+        args: get svc;git clone https://github.com/jhohandx/gitActions.git /github/workspace/gitActions;kubectl apply -f /github/workspace/gitActions/vsts/webpage/webpage.yml;kubectl set image deployment/webpage-deployment webpage=jhohandx/static-page:$shm_id
 
