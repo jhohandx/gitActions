@@ -20,7 +20,7 @@ jobs:
         ls /home/runner/work/gitActions/gitActions/vsts/webpage/
         echo ${{ github.sha }}
         docker build /home/runner/work/gitActions/gitActions/vsts/webpage/ -t jhohandx/static-page:${{ github.sha }}
-        export imageid=${{ github.sha }}"
+        export imageid=${{ github.sha }}
     - name: docker push
       run: |
         docker push jhohandx/static-page:${{ github.sha }}         
