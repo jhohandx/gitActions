@@ -4,7 +4,8 @@ on:
     branches:
       - main
     paths:
-      -gitActions/.github/workflows/**
+      - pipeline
+      - gitActions/vsts/webpage/**
 jobs:
 
   make-docker-image:
