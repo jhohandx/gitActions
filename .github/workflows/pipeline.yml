@@ -4,9 +4,7 @@ on:
     branches:
       - master
     paths:
-      - 'pipeline'
-      - 'gitActions/vsts/webpage/**'
-  
+      -*  
 jobs:
 
   make-docker-image:
