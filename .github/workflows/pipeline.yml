@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      -*  
+      -gitActions/.github/workflows/pipeline.yml  
 jobs:
 
   make-docker-image:
