@@ -28,7 +28,7 @@ jobs:
         export imageid=${{ github.sha }}
     - name: push-image-to-dockerHub
       run: |
-        docker push jhohandx/static-page:${{ github.sha }}         
+        docker push jhohandx/static-page:${{ github.sha }}          
   
   deploy-kubernets:
     name: deploy-image-to-kubernetes
