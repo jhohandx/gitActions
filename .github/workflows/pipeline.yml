@@ -9,8 +9,8 @@ on:
 
 jobs:
   ssh-commands:
-#     runs-on: ubuntu-latest
-#     steps:
+    runs-on: ubuntu-latest
+    steps:
 #     - name: build_webpage_image
 #       uses: garygrossgarten/github-action-ssh@release
 #       with:
