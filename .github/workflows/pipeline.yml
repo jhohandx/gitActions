@@ -9,17 +9,25 @@ on:
 
 jobs:
   ssh-commands:
-    runs-on: ubuntu-latest
-    steps:
-    - name: build_webpage_image
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: build_webpage_image
+#       uses: garygrossgarten/github-action-ssh@release
+#       with:
+#         command: sudo yum update;sudo yum -y install git;curl -sfL https://get.k3s.io | sh -;sudo chmod 777  /etc/rancher/k3s/k3s.yaml;sudo yum update -y;sudo amazon-linux-extras install docker;sudo yum -y install docker;sudo service docker start;sudo usermod -a -G docker ec2-user
+#         host: ${{ secrets.REMOTE_HOST }}
+#         username: ${{ secrets.REMOTE_USER }}
+#         privateKey: ${{ secrets.SERVER_SSH_KEY }}
+#       env:
+#         CI: true
+        
+    - name: baseline
       uses: garygrossgarten/github-action-ssh@release
       with:
         command: sudo yum update;sudo yum -y install git;curl -sfL https://get.k3s.io | sh -;sudo chmod 777  /etc/rancher/k3s/k3s.yaml;sudo yum update -y;sudo amazon-linux-extras install docker;sudo yum -y install docker;sudo service docker start;sudo usermod -a -G docker ec2-user
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        privateKey: ${{ secrets.SERVER_SSH_KEY }}
-      env:
-        CI: true
+        privateKey: ${{ secrets.SERVER_SSH_KEY }}     
       
   make-docker-image:
     runs-on: ubuntu-latest
